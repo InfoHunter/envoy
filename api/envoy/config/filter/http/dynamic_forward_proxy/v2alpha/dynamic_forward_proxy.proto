@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package envoy.config.filter.http.dynamic_forward_proxy.v2alpha;
+
+option java_outer_classname = "DynamicForwardProxyProto";
+option java_multiple_files = true;
+option java_package = "io.envoyproxy.envoy.config.filter.http.dynamic_forward_proxy.v2alpha";
+option go_package = "v2alpha";
+
+import "envoy/config/common/dynamic_forward_proxy/v2alpha/dns_cache.proto";
+
+import "validate/validate.proto";
+
+// fixfix comments/constraints/docs
+message FilterConfig {
+  common.dynamic_forward_proxy.v2alpha.DnsCacheConfig dns_cache_config = 1
+      [(validate.rules).message.required = true];
+}

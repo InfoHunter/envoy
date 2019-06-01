@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package envoy.config.common.dynamic_forward_proxy.v2alpha;
+
+option java_outer_classname = "DnsCacheProto";
+option java_multiple_files = true;
+option java_package = "io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha";
+
+import "envoy/api/v2/cds.proto";
+
+import "validate/validate.proto";
+
+// fixfix comments/constraints/docs
+message DnsCacheConfig {
+  string name = 1 [(validate.rules).string.min_bytes = 1];
+
+  api.v2.Cluster.DnsLookupFamily dns_lookup_family = 2 [(validate.rules).enum.defined_only = true];
+}
